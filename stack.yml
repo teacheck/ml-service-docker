@@ -2,7 +2,7 @@ version: "3"
 
 services:
   ml-service:
-    image: devallday/teacheck-ml-service:1.1
+    image: devallday/teacheck-ml-service:1.2
     environment:
       - SERVICE_PORTS=8000
     ports:
