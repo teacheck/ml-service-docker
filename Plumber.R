@@ -2,10 +2,10 @@ library(e1071)
 library(caret)
 
 #* The service for receiving students data, make the prediction about their status and return the results
-#* @param data The message to echo
+#* @param data. A json array representing all the alumns from a class for the prediction.
 #* @post /predict
 function(data){
-  modeloSemanal<-paste("modelos/modeloSemana",data$Semana[1],".rds",sep="")
+  modeloSemanal<-paste("modeloSemana",data$Semana[1],".rds",sep="")
   fit<-readRDS(modeloSemanal)
   
   #Convert data into the proper format
@@ -20,7 +20,10 @@ function(data){
   
   #Make correlations(all the students)
   data$Criterios <- predictions
+  
+  data[is.na(data)] <- 0
   cor1<-cor(data[12], data[3:11], method="kendall")
+  
   #Keep the correlations into another variable to be returned
   resultsCor <- data.frame(matrix(ncol = 10, nrow = 1))
   resultsPred  <- data.frame(matrix(ncol=2,nrow=60))
