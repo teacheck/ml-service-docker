@@ -5,7 +5,7 @@ library(caret)
 #* @param data. A json array representing all the alumns from a class for the prediction.
 #* @post /predict
 function(data){
-  modeloSemanal<-paste("modeloSemana",data$Semana[1],".rds",sep="")
+  modeloSemanal<-paste("modelos/modeloSemana",data$Semana[1],".rds",sep="")
   fit<-readRDS(modeloSemanal)
   
   #Convert data into the proper format
