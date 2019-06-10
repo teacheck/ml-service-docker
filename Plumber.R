@@ -40,8 +40,20 @@ function(data){
   predictions <- predict(fit, data[,3:11])
   predictions <- as.numeric(predictions)
   #Make correlations(all the students)
-  
-  if(data$Semana[1] == 2){
+
+  if(data$Semana[1] == 1){
+    data$EntregableC11 <- as.numeric(data$EntregableC11)
+    data$NotaEntregableC11 <- as.numeric(data$NotaEntregableC11)
+    data$Criterios <- as.numeric(data$Criterios)
+    data$NotaC11 <- as.numeric(data$NotaC11)
+    data$Horas1 <- as.numeric(data$Horas1)
+    data$Asistencia <- as.numeric(data$Asistencia)
+    data$AtencionP1 <- as.numeric(data$AtencionP1)
+    data$AtencionA1 <- as.numeric(data$AtencionA1)
+    data$MotivacionP1 <- as.numeric(data$MotivacionP1)
+    data$MotivacionA1 <- as.numeric(data$MotivacionA1)
+    data$Criterios <- predictions
+  }else if(data$Semana[1] == 2){
     data$EntregableC11.5 <- as.numeric(data$EntregableC11.5)
     data$NotaEntregableC11.5 <- as.numeric(data$NotaEntregableC11.5)
     data$Criterios.5 <- as.numeric(data$Criterios.5)
