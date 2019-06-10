@@ -15,8 +15,8 @@ function(data){
   if(data$Semana[1] == 6)extension <- ".25"
   if(data$Semana[1] == 7)extension <- ".30"
   if(data$Semana[1] == 8)extension <- ".35"
-  if(data$Semana[1] == 9)extension <- ".5"
-  if(data$Semana[1] == 10)extension <- ".5"
+  if(data$Semana[1] == 9)extension <- ".40"
+  if(data$Semana[1] == 10)extension <- ".45"
   
   names(data)[names(data) == "Asistencia"] <- paste("Asistencia",extension,sep="")
   names(data)[names(data) == "NotaC11"] <- paste("NotaC11",extension,sep="")
